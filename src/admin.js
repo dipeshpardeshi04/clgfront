@@ -4,7 +4,7 @@ import { assets } from "./assets";
 import axios from "axios";
 import toast from "react-hot-toast";
 
-const Loginpopup = ({ setshowlogin, setUserName}) => {
+const Loginpopup = ({ setSignadmin, setUserName}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -13,39 +13,60 @@ const Loginpopup = ({ setshowlogin, setUserName}) => {
 
 
 
-  const handleSubmit = async (e) => {
-    e.preventDefault(); // Prevents the default form submission behavior
+//   const handleSubmit = async (e) => {
+//     e.preventDefault(); // Prevents the default form submission behavior
 
    
+//     try {
+//       const response = await axios.post("http://localhost:5000/adminlogin", {
+//         email,
+//         password,
+//       });
+
+//       // Extract user data from the response
+//       const { user } = response.data;
+//       toast.success("You Are Logged In!");
+//       console.log(user);
+//       setSignadmin(false);
+
+//     } catch (error) {
+//       console.error("Error:", error);
+//       toast.error("Invalid Credentials");
+//     }
+//   };
+  // let a = false;
+
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevents the default form submission behavior
+  
     try {
-      const response = await axios.post("http://localhost:5000/login", {
+      const response = await axios.post("http://localhost:5000/adminlogin", {
         email,
         password,
       });
-
+  
       // Extract user data from the response
-      const { user } = response.data;
+      const { redirectUrl } = response.data;
       toast.success("You Are Logged In!");
-
-      const Name = user.name;
-      setUserName(Name);
-      console.log("User logged in:", Name);
-
-      
-      setshowlogin(false);
+  
+      // Perform the redirect manually in the frontend
+      if (redirectUrl) {
+        window.location.href = `http://localhost:5000${redirectUrl}`;
+      }
+  
     } catch (error) {
       console.error("Error:", error);
       toast.error("Invalid Credentials");
     }
   };
-  // let a = false;
+  
   return (
     <div className="login-popup">
       <form className="login-popup-container" onSubmit={handleSubmit}>
         <div className="login-popup-title">
-          <h2>Login</h2>
+          <h2>Admin Login</h2>
           <img
-            onClick={() => setshowlogin(false)}
+            onClick={() => setSignadmin(false)}
             src={assets.cross_icon}
             alt="Close"
           />
@@ -64,7 +85,7 @@ const Loginpopup = ({ setshowlogin, setUserName}) => {
             type="email"
             id="email"
             value={email}
-            placeholder="Your Email"
+            placeholder="Admin Email"
             onChange={handleEmailChange}
             required
           />
@@ -72,25 +93,22 @@ const Loginpopup = ({ setshowlogin, setUserName}) => {
             type="password"
             id="password"
             value={password}
-            placeholder="Password"
+            placeholder="Admin Password"
             onChange={handlePasswordChange}
             required
           />
         </div>
         <button type="submit">
-          Login
+          Admin Login
         </button>
-        <div className="login-popup-condition">
+        {/* <div className="login-popup-condition">
           <input
             type="checkbox"
             name="login-checkbox"
             id="login-checkbox"
             required
-          /><p className="m0">
-            By continuing, you agree to our{" "}
-            <span>Terms and Privacy Policy</span>
-          </p>
-        </div>
+          />
+        </div> */}
         
       </form>
     </div>

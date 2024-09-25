@@ -18,7 +18,7 @@ const Signinpopup = ({ setSignin}) => {
     e.preventDefault(); // Prevents the default form submission behavior
 
     try {
-      const response = await axios.post("http://localhost:5000/create", {
+      const response = await axios.post("http://localhost:5000/signup", {
         email,
         name:  name , // Send name only for Sign Up
         password,

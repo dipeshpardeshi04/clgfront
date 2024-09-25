@@ -3,14 +3,18 @@ body {
     margin: 0;
     padding: 0;
 }
-
 header {
     background-color: #1a202c;
     color: white;
     align-items: center;
-    padding: 1.5rem;
+    padding: 1vw;
 }
-
+.welcome {
+    margin-top: 0.5rem;
+    padding: 0;
+    font-size: 1vw;
+    color: white;
+}
 nav {
     display: flex;
     justify-content: space-between;
@@ -20,11 +24,9 @@ nav {
     padding: 0.5rem 1rem;
     cursor: pointer;
 }
-
 .left>* {
     padding: 7px 15px 0 15px;
 }
-
 .right>* {
     padding: 0 15px 0 15px;
 }
@@ -57,14 +59,40 @@ nav {
     border: none;
     font-weight: bold;
 }
-
+.adminbtn{
+    background-color: white;
+    border-radius: 21px;
+    color: black;
+    padding: 10px;
+    width: 79px;
+    cursor: pointer;
+    font-size: 16px;
+    border: none;
+    font-weight: bold;
+    /* remove underline of text oa a tag */
+    text-decoration: none;
+}
 .loginbtn:hover {
     font-weight: bold;
     font-size: 17px;
 }
-
 main {
     display: flex;
+}
+
+.sidebar {
+    width: 20vw;
+    background-color: #f7fafc;
+    padding: 1rem;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 10px 4px;
 }
 
 .main-content {
@@ -101,65 +129,48 @@ main {
     font-size: 1rem;
 }
 
-.course {
-    /*   width: 90%; */
+.course{
+  /*   width: 90%; */
     margin: auto;
     text-align: center;
     padding: 50px;
 }
-
-h1 {
+h1{
     font-size: 36px;
     font-weight: 500;
     padding: 10px;
 }
-
-p {
+p{
     color: #777;
     font-size: 25px;
     padding: 10px;
 }
+.row{
+    margin: 5%;
+    display : flex;
+    justify-content: space-between;
+    gap: 35px;
+}
 
 .career-card {
-    background-color: #f9f9f9;
-    border: 1px solid #ddd;
-    padding: 20px;
-    margin-bottom: 20px;
-    /* Creates space between cards */
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    /* Adds a subtle shadow */
-    width: 100%;
-    /* max-width: 600px;  Adjust this value as per your layout */
+    background-color: white;
+    color: #10152b;
+    border-radius: 15px;
+    padding: 1rem;
+    width: calc(33.333% - 1rem); 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
 }
 
 .career-card h2 {
     margin: 0 0 0.5rem 0;
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
 .career-card p {
     margin: 0 0 1rem 0;
     font-size: 1rem;
 }
-
-.course-details {
-    display: grid;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    align-items: center;
-    padding: 10px;
-}
-
-.course-details p {
-    font-size: 16px;
-    color: #666;
-    margin: 0 10px 0 0;
-
-}
-
 .apply-button {
     background-color: rgb(34 34 34);
     color: rgb(255, 255, 255);
@@ -171,7 +182,6 @@ p {
     border: none;
     font-weight: bold;
 }
-
 footer {
     background-color: #f9f9f9;
     padding: 2rem;
@@ -184,7 +194,6 @@ footer {
     flex: 1;
     margin-right: 2rem;
 }
-
 .footer-section:last-child {
     margin-right: 0;
 }
@@ -194,8 +203,7 @@ footer {
     margin-bottom: 1rem;
 }
 
-.footer-section p,
-.footer-section ul {
+.footer-section p, .footer-section ul {
     font-size: 0.9rem;
     margin: 0.5rem 0;
 }
@@ -216,82 +224,4 @@ footer {
 
 .footer-section ul li a:hover {
     text-decoration: underline;
-}
-
-/* ----------------------------------------------------------------------------------------------------------------- */
-.sidebar {
-    width: 20vw;
-    background-color: #f7fafc;
-    padding: 1rem;
-
-}
-
-.sidebar ul {
-    list-style: none;
-    padding: 0;
-}
-
-.sidebar ul li {
-    padding: 10px 4px;
-}
-
-.sidebar a {
-    text-decoration: none;
-    color: black;
-    padding: 15px 20px;
-    display: block;
-    transition: 0.3s;
-}
-
-.sidebar a:hover {
-    background-color: #ffffff;
-}
-
-/* Hide checkbox */
-input[type="checkbox"] {
-    display: none;
-}
-
-/* Dropdown content hidden by default */
-.dropdown-container {
-    max-height: 0;
-    overflow: auto;
-    background-color: #eae8e8;
-    transition: max-height 0.3s ease-out;
-}
-
-/* Dropdown content visible when checkbox is checked */
-input[type="checkbox"]:checked+label+.dropdown-container {
-    max-height: 300px;
-    /* Adjust this value to fit your content */
-}
-
-/* Label styling for dropdowns */
-label {
-    color: black;
-    padding: 15px 20px;
-    display: block;
-    cursor: pointer;
-}
-
-/* Add an icon for dropdown indicator */
-label::after {
-    content: ' \25BC';
-    /* Down arrow */
-    float: right;
-}
-
-input[type="checkbox"]:checked+label::after {
-    content: ' \25B2';
-    /* Up arrow */
-}
-
-.dropdown-container a {
-    padding: 10px 25px;
-    display: block;
-    color: #000000;
-}
-
-.dropdown-container a:hover {
-    background-color: #ffa200;
 }
